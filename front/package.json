@@ -20,7 +20,8 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "lint": "npm install eslint"
+    "lint": "npm install eslint",
+    "check-pretty":  "npm install prettier"
   },
   "eslintConfig": {
     "extends": [

@@ -7,7 +7,9 @@
     "start": "node index.js",
     "dev": "nodemon index.js",
     "bdd": "node ./cli/bdd.js",    
-    "lint": "npm install eslint"
+    "lint": "npm install eslint",
+        "check-pretty":  "npm install prettier"
+
 
   },
   "author": "",
