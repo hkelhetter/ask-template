@@ -1,0 +1,24 @@
+version: "3"
+
+services:
+  web:
+    build:
+      context: .
+      target: runner
+    volumes:
+      - ./:/app
+    environment:
+      - NODE_ENV=production
+      - BDD_URL=mariadb://ask:ask@database/database
+      - PORT=3630
+    command: ["npm", "run", "dev"]
+
+  database:
+    image: mariadb:10.6
+    ports:
+      - 3631:3306
+    environment:
+      - MYSQL_DATABASE=database
+      - MYSQL_USER=ask
+      - MYSQL_PASSWORD=ask
+      - MYSQL_ROOT_PASSWORD=ask

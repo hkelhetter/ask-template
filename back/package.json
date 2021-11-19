@@ -18,6 +18,10 @@
     "sequelize": "^6.6.5"
   },
   "devDependencies": {
-    "nodemon": "^2.0.13"
+    "nodemon": "^2.0.13",
+    "prettier": "2.4.1"
+  },
+  "engine": {
+    "node": 16
   }
 }

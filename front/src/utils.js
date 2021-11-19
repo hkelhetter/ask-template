@@ -1,7 +1,7 @@
 export function dateToString(d) {
   if (d === "") return "";
 
-  let date
+  let date;
 
   if (d instanceof Date) {
     date = d;
