@@ -10,3 +10,16 @@ jobs:
       - uses: stefanoeb/eslint-action@1.0.2
         with:
           files: front/
+
+
+name: CI
+on: push
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Install modules
+      run: yarn
+    - name: Run ESLint
+      run: eslint . --ext .js,.jsx,.ts,.tsx
