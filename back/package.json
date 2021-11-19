@@ -2,6 +2,7 @@
   "name": "back",
   "version": "1.0.0",
   "description": "",
+  "homepage": "https://hkelhetter.github.io/ask-template",
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
