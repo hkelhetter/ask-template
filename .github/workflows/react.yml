@@ -22,13 +22,13 @@ jobs:
         node-version: 14
     - run: npm install
     - run: npm run build
-    - name: Create SSH
-      run: mkdir ~/.ssh
-    - name: Install SSH Key
-      run: echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/id_rsa
-    - name: Setup Perm
-      run: chmod 600 ~/.ssh/id_rsa
-    - name: Adding Known Hosts
+#    - name: Create SSH
+#      run: mkdir ~/.ssh
+#    - name: Install SSH Key
+#      run: echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/id_rsa
+#   - name: Setup Perm
+#     run: chmod 600 ~/.ssh/id_rsa
+#    - name: Adding Known Hosts
       run: ssh-keyscan -H -p 4242 ${{ secrets.SSH_HOST }} >> ~/.ssh/known_hosts
     - name: Deploy with rsync
       run: rsync -avz -e 'ssh -p 4242 -i ~/.ssh/id_rsa' ./build/ ls1@${{ secrets.SSH_HOST }}:/home/ls1/build/
