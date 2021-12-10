@@ -1,5 +1,5 @@
 export function dateToString(d) {
-  if (d === "") return "";
+  if (d === '') return '';
 
   let date;
 
@@ -15,5 +15,5 @@ export function dateToString(d) {
 }
 
 function zero(int) {
-  return int < 10 ? "0" + int : "" + int;
+  return int < 10 ? '0' + int : '' + int;
 }

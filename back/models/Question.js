@@ -1,10 +1,12 @@
 module.exports = (sequelize, DataTypes) => {
   const Question = sequelize.define(
-    "Question",
+    'Question',
     {
       question: DataTypes.STRING,
       type: DataTypes.STRING,
       author: DataTypes.STRING,
+      image: DataTypes.STRING,
+      imageMime: DataTypes.STRING,
     },
     {}
   );

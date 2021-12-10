@@ -1,0 +1,48 @@
+version: '3'
+
+services:
+  web:
+    build:
+      context: .
+      target: runner
+    volumes:
+      - ./:/app
+    environment:
+      - NODE_ENV=production
+      - BDD_URL=mariadb://ask:ask@database/database
+      - PORT=3630
+      - BUCKET_NAME=ask
+      - S3_ID=123
+      - S3_TOKEN=abc
+      - S3_DOMAIN=s3:8000
+    env_file: '.env'
+    command: ['npm', 'run', 'dev']
+    ports:
+      - 3630:3630
+  database:
+    image: mariadb:10.6
+    ports:
+      - 3631:3306
+    environment:
+      - MYSQL_DATABASE=database
+      - MYSQL_USER=ask
+      - MYSQL_PASSWORD=ask
+      - MYSQL_ROOT_PASSWORD=ask
+  s3:
+    image: fingershock/fakes3
+    ports:
+      - 8000:8000
+# version: '3'
+# services:
+#   web:
+#     image: "node:14"
+#     ports:
+#       - 3630:3630
+#     volumes:
+#       - ./:/app
+#     environment:
+#       - NODE_ENV=production
+#       - BDD_URL=mariadb://ask:ask@database/database
+#       - PORT=3630
+#     env_file: ".env"
+#     command: ["npm", "run", "dev"]

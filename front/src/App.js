@@ -1,20 +1,20 @@
-import "./App.css";
-import "bootstrap/dist/css/bootstrap.min.css";
+import './App.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 import {
   BrowserRouter as Router,
   Switch,
   Route,
-  Redirect
-} from "react-router-dom";
+  Redirect,
+} from 'react-router-dom';
 
 // Components
-import TopBar from "./components/TopBar";
+import TopBar from './components/TopBar';
 
 // Page
-import Question from "./page/Question";
-import ListQuestions from "./page/ListQuestions";
-import Answer from "./page/Answer";
+import Question from './page/Question';
+import ListQuestions from './page/ListQuestions';
+import Answer from './page/Answer';
 
 function App() {
   return (

@@ -1,16 +1,16 @@
-import React from "react";
+import React from 'react';
 
-import Navbar from "react-bootstrap/Navbar";
-import Nav from "react-bootstrap/Nav";
+import Navbar from 'react-bootstrap/Navbar';
+import Nav from 'react-bootstrap/Nav';
 
-import { useHistory } from "react-router";
+import { useHistory } from 'react-router';
 
 export default function TopBar() {
   const history = useHistory();
 
   function redirect(e) {
     e.preventDefault();
-    history.push(e.target.getAttribute("href"));
+    history.push(e.target.getAttribute('href'));
   }
 
   return (

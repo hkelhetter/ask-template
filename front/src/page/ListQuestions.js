@@ -1,18 +1,18 @@
-import Container from "react-bootstrap/Container";
-import Spinner from "react-bootstrap/Spinner";
-import Card from "react-bootstrap/Card";
-import Button from "react-bootstrap/Button";
+import Container from 'react-bootstrap/Container';
+import Spinner from 'react-bootstrap/Spinner';
+import Card from 'react-bootstrap/Card';
+import Button from 'react-bootstrap/Button';
 
-import { useQuery } from "react-query";
-import api from "../api";
-import { dateToString } from "../utils";
-import { useHistory } from "react-router";
+import { useQuery } from 'react-query';
+import api from '../api';
+import { dateToString } from '../utils';
+import { useHistory } from 'react-router';
 
 export default function ListQuestions() {
   const history = useHistory();
 
   const { data: questions, isLoading } = useQuery(
-    "questions",
+    'questions',
     api.questions.getAll
   );
 
@@ -29,11 +29,11 @@ export default function ListQuestions() {
             <Card.Body>
               <p>{q.question}</p>
               <p>
-                Posée par {q.author !== null ? q.author : "Anonyme"} le{" "}
+                Posée par {q.author !== null ? q.author : 'Anonyme'} le{' '}
                 {dateToString(q.createdAt)}
               </p>
               {q.Answer === null ? (
-                <Button onClick={() => history.push("/answer/" + q.id)}>
+                <Button onClick={() => history.push('/answer/' + q.id)}>
                   Répondre
                 </Button>
               ) : (

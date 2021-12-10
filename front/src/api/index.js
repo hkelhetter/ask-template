@@ -1,6 +1,6 @@
-import questions from "./questions";
+import questions from './questions';
 
-export const host = process.env.REACT_APP_HOST_API || "http://localhost:3630";
+export const host = process.env.REACT_APP_HOST_API || 'http://localhost:3630';
 
 export const checkStatus = (res) => {
   if (res.ok) {
@@ -13,7 +13,7 @@ export const checkStatus = (res) => {
 };
 
 const api = {
-  questions
+  questions,
 };
 
 export default api;

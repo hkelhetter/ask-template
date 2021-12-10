@@ -1,28 +1,28 @@
-import { useState } from "react";
-import Container from "react-bootstrap/Container";
-import Spinner from "react-bootstrap/Spinner";
-import Form from "react-bootstrap/Form";
-import Button from "react-bootstrap/Button";
+import { useState } from 'react';
+import Container from 'react-bootstrap/Container';
+import Spinner from 'react-bootstrap/Spinner';
+import Form from 'react-bootstrap/Form';
+import Button from 'react-bootstrap/Button';
 
-import { useMutation, useQuery } from "react-query";
+import { useMutation, useQuery } from 'react-query';
 
-import { useHistory, useParams } from "react-router";
-import api from "../api";
-import { dateToString } from "../utils";
+import { useHistory, useParams } from 'react-router';
+import api from '../api';
+import { dateToString } from '../utils';
 
 export default function Answer() {
   const { id } = useParams();
   const history = useHistory();
 
-  const [answer, setAnswer] = useState("");
+  const [answer, setAnswer] = useState('');
 
-  const { data: question, isLoading } = useQuery(["questions", id], () =>
+  const { data: question, isLoading } = useQuery(['questions', id], () =>
     api.questions.getOne(id)
   );
   const { mutate: addAnswer } = useMutation(api.questions.answer, {
     onSuccess: (data) => {
-      history.push("/");
-    }
+      history.push('/');
+    },
   });
 
   function handleAnswer() {
@@ -39,7 +39,7 @@ export default function Answer() {
         <>
           <p>{question.question}</p>
           <p>
-            Posée par {question.author !== null ? question.author : "Anonyme"}{" "}
+            Posée par {question.author !== null ? question.author : 'Anonyme'}{' '}
             le {dateToString(question.createdAt)}
           </p>
 
@@ -51,7 +51,7 @@ export default function Answer() {
                   as="textarea"
                   value={answer}
                   onChange={(e) => setAnswer(e.target.value)}
-                  isInvalid={answer === ""}
+                  isInvalid={answer === ''}
                   rows={5}
                 />
               </Form.Group>
@@ -59,7 +59,7 @@ export default function Answer() {
               <Button
                 onClick={handleAnswer}
                 disabled={!answer}
-                style={{ marginTop: "10px" }}
+                style={{ marginTop: '10px' }}
               >
                 Répondre
               </Button>
